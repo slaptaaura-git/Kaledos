@@ -212,7 +212,7 @@ button:hover {
 }
 
 .wrapper::before {
-  content: "🎄🎁🎄🎁🎄";
+  content: "🎄🎁🎄🎁";
   font-size: 40px;
   position: absolute;
   top: 300px;

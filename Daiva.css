@@ -309,7 +309,7 @@ button:hover {
   font-size: 15px;
   margin-top: 30px;
   color: #000000;
-  font-family:'Papyrus';
+  font-family:'fantasy','papyrus';
 }
 
 .wrapper:hover .lid.one {

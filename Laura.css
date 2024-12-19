@@ -1,0 +1,543 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  background-color: #f0f0f0; /* Galite naudoti fono spalvą, jei neturite paveikslėlio */
+}
+
+/* Pagrindinis fonas */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('merry-christmas-7620127_1920.jpg'); /* Pagrindinis fonas per visą ekraną */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Pagrindinis fonas bus po visais kitais elementais */
+}
+
+/* Pirmas PNG elementas */
+.present {
+  position: absolute;
+  top: -1.5rem; /* Prikabina prie viršaus */
+  left: 0; /* Prikabina prie kairio krašto */
+  width: 20%;
+  height: auto;
+  z-index: 1; /* Virš pagrindinio fono */
+}
+
+.deers {
+  position: absolute; /* Leis lengvai valdyti poziciją */
+  top: 50px; /* Atstumas nuo viršaus */
+  right: 200px; /* Atstumas nuo dešinės */
+  width: 20rem; /* Reguliuokite dydį pagal poreikį */
+  z-index: 10; /* Užtikrina, kad būtų virš kitų elementų */
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+ }
+ 
+ .snowflake,.snowflake .inner {
+  animation-iteration-count:infinite;
+  animation-play-state:running
+ }
+ @keyframes snowflakes-fall{
+  0%
+  {
+    transform:translateY(0)
+  }
+  100%{
+    transform:translateY(110vh)
+  }
+ }
+ @keyframes snowflakes-shake{
+  0%,100%{
+    transform:translateX(0)
+  }
+  50%{
+    transform:translateX(80px)
+  }
+ }
+ 
+.snowflake{
+ position:fixed;
+ top:-10%;
+ z-index:9999;
+ -webkit-user-select:none;
+ user-select:none;
+ cursor:default;
+ animation-name:snowflakes-shake;
+ animation-duration:3s;
+ animation-timing-function:ease-in-out
+}
+.snowflake .inner{
+ animation-duration:10s;
+ animation-name:snowflakes-fall;
+ animation-timing-function:linear
+}
+.snowflake:nth-of-type(0){
+ left:1%;
+ animation-delay:0s
+}
+.snowflake:nth-of-type(0) .inner{
+ animation-delay:0s;
+}.snowflake:first-of-type{
+ left:10%;
+ animation-delay:1s;
+}
+.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{
+ animation-delay:1s;
+}.snowflake:nth-of-type(2){
+ left:20%;
+ animation-delay:.5s;
+}
+.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{
+ animation-delay:6s;
+}.snowflake:nth-of-type(3){
+ left:30%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{
+ animation-delay:4s;
+}.snowflake:nth-of-type(4){
+ left:40%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{
+ animation-delay:2s;
+}.snowflake:nth-of-type(5){
+ left:50%;
+ animation-delay:3s;
+}.snowflake:nth-of-type(5) .inner{
+ animation-delay:8s;
+}.snowflake:nth-of-type(6){
+ left:60%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(7){
+ left:70%;
+ animation-delay:1s;
+}.snowflake:nth-of-type(7) .inner{
+ animation-delay:2.5s;
+}.snowflake:nth-of-type(8){
+ left:80%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(9){
+ left:90%;
+ animation-delay:1.5s;
+}.snowflake:nth-of-type(9) .inner{
+ animation-delay:3s;
+}.snowflake:nth-of-type(10){
+ left:25%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(11){
+ left:65%;
+ animation-delay:2.5s;
+}
+
+.candy-cane-text {
+  font-size: 4rem; /* Teksto dydis */
+  font-weight: bold; /* Parieškinimas */
+  color: transparent; /* Skaidrus tekstas, kad matytųsi fonas */
+  text-align: center; /* Centruotas tekstas */
+  background: repeating-linear-gradient(
+    45deg,          /* Įstrižai einantys dryžiai */
+    red 0%,         /* Raudona spalva pradžioje */
+    red 20%,        /* Raudona baigiasi ties 20% */
+    white 20%,      /* Balta prasideda ties 20% */
+    white 40%       /* Balta baigiasi ties 40% */
+  );
+  background-size: 200% 200%; /* Dryžių dydis (valdo storį) */
+  -webkit-background-clip: text; /* Gradientas taikomas tik tekstui */
+  -webkit-text-fill-color: transparent; /* Skaidrus tekstas už gradientinio fono */
+  animation: candy-cane-move 3s linear infinite; /* Pridėta animacija */
+}
+
+/* Animacija saldainio juostoms */
+@keyframes candy-cane-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.wrapper {
+  height: 200px;
+  width: 400px;
+  background-color: #8d926a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  top: -300px;
+  left: 30%;
+  animation: shake 0.5s infinite alternate;
+}
+
+.wrapper::before {
+  font-size: 40px;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1s infinite;
+}
+
+.wraper::after {
+  content: "✉️";
+  font-size: 50px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+@keyframes shake {
+  0% {
+      transform: rotate(-2deg) translateX(0);
+  }
+  50% {
+      transform: rotate(2deg) translateX(2px);
+  }
+  100% {
+      transform: rotate(-2deg) translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translate(-50%, -10px);
+  }
+  50% {
+      transform: translate(-50%, 0);
+  }
+}
+
+/* Lid when closed */
+.lid.one {
+  border-top: 100px solid #c2c7a3;
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+/* Lid when opened */
+.lid.two {
+  border-top: 100px solid #dff0ac;
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #a81616;
+  border-bottom: 100px solid #7d0000;
+  border-left: 150px solid #a81616;
+  z-index: 3;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 90%;
+  background-color: rgb(225, 203, 184);
+  border-radius: 15px;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.letter p {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 30px;
+  color: #000000;
+  font-family: fantasy;
+}
+
+.wrapper:hover .lid.one {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+
+.wrapper:hover .lid.two {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+.wrapper:hover .letter {
+  transform: translateY(-150px);
+  transition-delay: 0.5s;
+}
+
+h1 {
+  margin-bottom: 118px;
+  color: #00796b;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #00796b;
+}
+
+/* Pulsuojantis mygtukas */
+.pulse-button {
+  background-color: red; /* Raudona spalva kaip Kalėdų tema */
+  color: white; /* Tekstas baltas */
+  border: 3px solid white; /* Baltos kraštinės */
+  border-radius: 10px; /* Užapvalinti kampai */
+  padding: 15px 30px; /* Mygtuko dydis */
+  font-size: 1rem; /* Teksto dydis */
+  cursor: pointer; /* Rodyklė rodo ranką, kai užvedama */
+  transition: transform 0.3s ease-in-out; /* Sklandus perėjimas */
+  animation: pulse 1.5s infinite ease-in-out; /* Pulsuojanti animacija */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Švytėjimo efektas */
+  
+  /* Mygtukas dešinėje viršuje */
+  position: fixed; /* Fiksuota pozicija */
+  right: 50px; /* Atsitraukia 20px nuo dešinio krašto */
+  top: 20px; /* Atsitraukia 20px nuo viršutinio krašto */
+}
+
+/* Pulsuojanti animacija */
+@keyframes pulse {
+  0% {
+      transform: scale(1); /* Pradinis dydis */
+      background-color: red; /* Raudona spalva */
+  }
+  50% {
+      transform: scale(1.1); /* Mygtukas padidėja */
+      background-color: #ff4d4d; /* Šviesesnė raudona spalva */
+  }
+  100% {
+      transform: scale(1); /* Grįžta į pradinį dydį */
+      background-color: red; /* Grįžta į raudoną spalvą */
+  }
+}
+
+/* Keičia mygtuko spalvą užvedus pelę */
+.pulse-button:hover {
+  background-color: #ff6666; /* Pakeičia spalvą užvedus pelę */
+}
+
+
+#error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+header {
+  background-color: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  border-bottom: 2px solid #d2232a;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+section p {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+}
+@keyframes colorChange {
+  0% {
+    color: #ff6347; /* Tomato Red */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+  25% {
+    color: #32cd32; /* Lime Green */
+    letter-spacing: 3px;
+    transform: scale(1.1);
+  }
+  50% {
+    color: #1e90ff; /* Dodger Blue */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+  75% {
+    color: #ff1493; /* Deep Pink */
+    letter-spacing: -2px;
+    transform: scale(1.05);
+  }
+  100% {
+    color: #ff6347; /* Tomato Red */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+}
+
+.pdf-button {
+  position: fixed; /* Fiksuota pozicija ekrane */
+  bottom: 50px; /* Atstumas nuo apačios */
+  left: 100px; /* Atstumas nuo kairiojo krašto */
+  width: 200px; /* Mygtuko dydis */
+  height: auto; /* Automatinis proporcijų išlaikymas */
+  z-index: 1000; /* Užtikrina, kad mygtukas bus virš kitų elementų */
+}
+
+.pdf-button img {
+  width: 100%; /* Užtikrina, kad paveikslėlis atitiks nustatytą plotį */
+  cursor: pointer; /* Pelės rodyklė pasikeis į rankelę */
+  transition: transform 0.2s ease-in-out; /* Efektas užvedus pelę */
+}
+
+.pdf-button img:hover {
+  transform: scale(1.1); /* Padidina paveikslėlį užvedus pelę */
+}
+.christmas-hat {
+  position: absolute;
+  top: -32px;
+  left: -17px;
+  height: 44px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25));
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Animacijos efektas */
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ff0000, 0 0 15px #ff7b00;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ff0000, 0 0 25px #ff7b00;
+  }
+}
+
+.christmas-button .text {
+  animation: sparkle 1.5s infinite;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul {
+    flex-direction: column;
+}
+
+nav ul li {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+  
+.qa-container {
+  max-width: 300px;
+  height: auto;
+}
+
+.snowflakes {
+    display: none;
+}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+header {
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+}
+
+@media screen and (min-width: 1025px) {
+header h1 {
+    font-size: 3rem;
+}
+
+nav ul {
+    justify-content: space-around;
+}
+}

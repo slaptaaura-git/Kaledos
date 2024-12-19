@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalėdiniai Sveikinimai</title>
+    <link rel="stylesheet" href="pradzia.css">
+</head>
+<body>
+    <div class="container"></div>
+  <div class="cirkle"></div>
+  <div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+    <div class="snowflake">
+      <div class="inner">❅</div>
+    </div>
+<body>
+    <div class="containers">
+        <div class="cirkle"></div>
+    <main>
+        <div class="links-container">
+            <a href="#" class="link" onclick="showLogin('daiva')">Daiva</a>
+            <a href="#" class="link" onclick="showLogin('laura')">Laura</a>
+            <a href="#" class="link" onclick="showLogin('vyginte')">Vygintė</a>
+            <a href="#" class="link" onclick="showLogin('guste')">Gustė</a>
+            <a href="#" class="link" onclick="showLogin('kamile')">Kamilė</a>
+            <a href="#" class="link" onclick="showLogin('gerda')">Gerda</a>
+            <a href="#" class="link" onclick="showLogin('silvija')">Silvija</a>
+        </div>
+    </main>
+    <!-- Prisijungimo forma -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">×</span>
+            <h2>Prisijunkite</h2>
+            <form id="loginForm" onsubmit="return loginSubmit(event)">
+                <label for="username">Vartotojo vardas:</label>
+                <input type="text" id="username" placeholder="Įveskite vardą" required><br>
+                <label for="password">Slaptažodis:</label>
+                <input type="password" id="password" placeholder="Įveskite slaptažodį" required><br>
+                <button type="submit">Prisijungti</button>
+            </form>
+            <p id="error-message" class="hidden">Neteisingas vartotojo vardas ar slaptažodis!</p>
+        </div>
+    </div>
+        <header>
+            <h1>Šiltos Kalėdinės Sveikinimų Akimirkos</h1>
+            <p>Pasirinkite savo vardą ir atraskite šventinį sveikinimą bei mažą dovanėlę!</p>
+        </header>
+    </main>
+    <footer>
+        <p>Su artėjančiomis Šventėmis sveikina jus Kolegė AUŠRA ❤️</p>
+    </footer>
+    <script src="pradzia.js"></script>
+</body>
+</html>

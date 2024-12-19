@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  background-color: #f0f0f0; /* Galite naudoti fono spalvą, jei neturite paveikslėlio */
+}
+
+button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4c4c; /* Raudona */
+  color: white;
+  border: 2px solid #b30000;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Mygtuko hover efektai */
+button:hover {
+  background-color: #b30000; /* Tamsesnė raudona */
+  transform: scale(1.05); /* Pritraukti mygtuką */
+}
+
+/* Pagrindinis fonas */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('catsss.jpg'); /* Pagrindinis fonas per visą ekraną */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Pagrindinis fonas bus po visais kitais elementais */
+}
+
+/* Trečias PNG elementas */
+.santacat {
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  width: 20%;
+  height: auto;
+  z-index: 3; /* Virš kitų elementų */
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+ }
+ 
+ .snowflake,.snowflake .inner {
+  animation-iteration-count:infinite;
+  animation-play-state:running
+ }
+ @keyframes snowflakes-fall{
+  0%
+  {
+    transform:translateY(0)
+  }
+  100%{
+    transform:translateY(110vh)
+  }
+ }
+ @keyframes snowflakes-shake{
+  0%,100%{
+    transform:translateX(0)
+  }
+  50%{
+    transform:translateX(80px)
+  }
+ }
+ 
+.snowflake{
+ position:fixed;
+ top:-10%;
+ z-index:9999;
+ -webkit-user-select:none;
+ user-select:none;
+ cursor:default;
+ animation-name:snowflakes-shake;
+ animation-duration:3s;
+ animation-timing-function:ease-in-out
+}
+.snowflake .inner{
+ animation-duration:10s;
+ animation-name:snowflakes-fall;
+ animation-timing-function:linear
+}
+.snowflake:nth-of-type(0){
+ left:1%;
+ animation-delay:0s
+}
+.snowflake:nth-of-type(0) .inner{
+ animation-delay:0s;
+}.snowflake:first-of-type{
+ left:10%;
+ animation-delay:1s;
+}
+.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{
+ animation-delay:1s;
+}.snowflake:nth-of-type(2){
+ left:20%;
+ animation-delay:.5s;
+}
+.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{
+ animation-delay:6s;
+}.snowflake:nth-of-type(3){
+ left:30%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{
+ animation-delay:4s;
+}.snowflake:nth-of-type(4){
+ left:40%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{
+ animation-delay:2s;
+}.snowflake:nth-of-type(5){
+ left:50%;
+ animation-delay:3s;
+}.snowflake:nth-of-type(5) .inner{
+ animation-delay:8s;
+}.snowflake:nth-of-type(6){
+ left:60%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(7){
+ left:70%;
+ animation-delay:1s;
+}.snowflake:nth-of-type(7) .inner{
+ animation-delay:2.5s;
+}.snowflake:nth-of-type(8){
+ left:80%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(9){
+ left:90%;
+ animation-delay:1.5s;
+}.snowflake:nth-of-type(9) .inner{
+ animation-delay:3s;
+}.snowflake:nth-of-type(10){
+ left:25%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(11){
+ left:65%;
+ animation-delay:2.5s;
+}
+
+.stylized-text{
+  font-size: 2rem; /* Didesnis tekstas */
+  color: #ec0d0d; /* Kalėdinė raudona spalva */
+  font-weight: bold;
+  text-transform: uppercase; /* Didžiosios raidės */
+  letter-spacing: 5px; /* Tarpai tarp raidžių */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), 0 0 25px #ff4c4c, 0 0 5px darkred; /* Šešėliai ir švytėjimas */
+  animation: pulse-text 1.5s infinite ease-in-out; /* Animacija tekstui */
+  margin-top: 50px; /* Atstumas nuo viršaus */
+}
+
+/* Animacija švytinčiam tekstui */
+@keyframes pulse-text {
+  0% {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), 0 0 25px #ff4c4c, 0 0 5px darkred;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2), 0 0 30px #ff4c4c, 0 0 10px darkred;
+    transform: scale(1.1);
+  }
+  100% {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), 0 0 25px #ff4c4c, 0 0 5px darkred;
+    transform: scale(1);
+  }
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background-image: linear-gradient(45deg, red, white); /* 45 laipsnių gradientas */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 3px 3px 8px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.8); /* Švytėjimas */
+  transform: rotate(-45deg); /* 45 laipsnių pasvirimas */
+  padding: 20px;
+}
+
+.wrapper {
+  height: 200px;
+  width: 400px;
+  background-color: #191e20;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  top: -200px;
+  animation: shake 0.5s infinite alternate;
+}
+
+.wrapper::before {
+  content: "🎄🎁🎄🎁🎄";
+  font-size: 40px;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1s infinite;
+}
+
+.wraper::after {
+  content: "✉️";
+  font-size: 50px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+@keyframes shake {
+  0% {
+      transform: rotate(-2deg) translateX(0);
+  }
+  50% {
+      transform: rotate(2deg) translateX(2px);
+  }
+  100% {
+      transform: rotate(-2deg) translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translate(-50%, -10px);
+  }
+  50% {
+      transform: translate(-50%, 0);
+  }
+}
+
+/* Lid when closed */
+.lid.one {
+  border-top: 100px solid #424925;
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+/* Lid when opened */
+.lid.two {
+  border-top: 100px solid #030033;
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #383f1a;
+  border-bottom: 100px solid #444d19;
+  border-left: 150px solid #383f1a;
+  z-index: 3;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 15px;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.letter p {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 30px;
+  color: #000000;
+  font-family: fantasy;
+}
+
+.wrapper:hover .lid.one {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+
+.wrapper:hover .lid.two {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+.wrapper:hover .letter {
+  transform: translateY(-80px);
+  transition-delay: 0.5s;
+}
+
+/* Bendras konteineris */
+.christmas-button-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Mygtukas */
+.button {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  min-width: 8em;
+  text-align: center;
+  color: #fff;
+  background-image: 
+    linear-gradient(to bottom, #f12828, #a00332, #9f0f31),
+    linear-gradient(to bottom, #ae0034, #6f094c);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 
+    inset 0 1px rgb(255 255 255 / .25),
+    inset 0 -1px rgb(0 0 0 / .1),
+    0 2px 4px rgb(0 0 0 / .25);
+  transition: .2s;
+  will-change: transform;
+  
+  &:active {
+    transform: scale(.92);
+    filter: brightness(.8);
+  }
+}
+
+.christmas-hat {
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  height: 50px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25));
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Animacijos efektas */
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ff0000, 0 0 15px #ff7b00;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ff0000, 0 0 25px #ff7b00;
+  }
+}
+
+.christmas-button .text {
+  animation: sparkle 1.5s infinite;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul {
+    flex-direction: column;
+}
+
+nav ul li {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+  
+.qa-container {
+  max-width: 300px;
+  height: auto;
+}
+
+.snowflakes {
+    display: none;
+}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+header {
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+}
+
+@media screen and (min-width: 1025px) {
+header h1 {
+    font-size: 3rem;
+}
+
+nav ul {
+    justify-content: space-around;
+}
+}

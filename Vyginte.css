@@ -1,0 +1,537 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  background-color: #f0f0f0; /* Galite naudoti fono spalvą, jei neturite paveikslėlio */
+}
+
+button {
+  position: absolute;
+  top: 10px; /* Arčiau viršaus */
+  right: 10px; /* Arčiau dešiniojo krašto */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4c4c; /* Raudona */
+  color: white;
+  border: 2px solid #b30000;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Mygtuko hover efektai */
+button:hover {
+  background-color: #b30000; /* Tamsesnė raudona */
+  transform: scale(1.05); /* Pritraukti mygtuką */
+}
+
+/* Pagrindinis fonas */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('presents.jpg'); /* Pagrindinis fonas per visą ekraną */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Pagrindinis fonas bus po visais kitais elementais */
+}
+
+/* Pirmas PNG elementas */
+.present {
+  position: absolute;
+  top: -0.5rem; /* Prikabina prie viršaus */
+  left: 0; /* Prikabina prie kairio krašto */
+  width: 10%;
+  height: auto;
+  z-index: 1; /* Virš pagrindinio fono */
+}
+
+.snowman {
+  position: absolute;
+  bottom: 10%; /* Norimas atstumas nuo apačios */
+  left: 10%;
+  width: 20%;
+  height: auto;
+  z-index: 2; /* Virš pirmo PNG elementą */
+}
+
+/* Trečias PNG elementas */
+.christmastree {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 20%;
+  height: auto;
+  z-index: 3; /* Virš kitų elementų */
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+ }
+ 
+ .snowflake,.snowflake .inner {
+  animation-iteration-count:infinite;
+  animation-play-state:running
+ }
+ @keyframes snowflakes-fall{
+  0%
+  {
+    transform:translateY(0)
+  }
+  100%{
+    transform:translateY(110vh)
+  }
+ }
+ @keyframes snowflakes-shake{
+  0%,100%{
+    transform:translateX(0)
+  }
+  50%{
+    transform:translateX(80px)
+  }
+ }
+ 
+.snowflake{
+ position:fixed;
+ top:-10%;
+ z-index:9999;
+ -webkit-user-select:none;
+ user-select:none;
+ cursor:default;
+ animation-name:snowflakes-shake;
+ animation-duration:3s;
+ animation-timing-function:ease-in-out
+}
+.snowflake .inner{
+ animation-duration:10s;
+ animation-name:snowflakes-fall;
+ animation-timing-function:linear
+}
+.snowflake:nth-of-type(0){
+ left:1%;
+ animation-delay:0s
+}
+.snowflake:nth-of-type(0) .inner{
+ animation-delay:0s;
+}.snowflake:first-of-type{
+ left:10%;
+ animation-delay:1s;
+}
+.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{
+ animation-delay:1s;
+}.snowflake:nth-of-type(2){
+ left:20%;
+ animation-delay:.5s;
+}
+.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{
+ animation-delay:6s;
+}.snowflake:nth-of-type(3){
+ left:30%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{
+ animation-delay:4s;
+}.snowflake:nth-of-type(4){
+ left:40%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{
+ animation-delay:2s;
+}.snowflake:nth-of-type(5){
+ left:50%;
+ animation-delay:3s;
+}.snowflake:nth-of-type(5) .inner{
+ animation-delay:8s;
+}.snowflake:nth-of-type(6){
+ left:60%;
+ animation-delay:2s;
+}.snowflake:nth-of-type(7){
+ left:70%;
+ animation-delay:1s;
+}.snowflake:nth-of-type(7) .inner{
+ animation-delay:2.5s;
+}.snowflake:nth-of-type(8){
+ left:80%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(9){
+ left:90%;
+ animation-delay:1.5s;
+}.snowflake:nth-of-type(9) .inner{
+ animation-delay:3s;
+}.snowflake:nth-of-type(10){
+ left:25%;
+ animation-delay:0s;
+}.snowflake:nth-of-type(11){
+ left:65%;
+ animation-delay:2.5s;
+}
+
+.neon-text {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #1c87ff, 0 0 40px #1c87ff, 0 0 50px #1c87ff;
+  animation: neon-blink 2s infinite alternate;
+}
+
+@keyframes neon-blink {
+  0% {
+      text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #1c87ff, 0 0 40px #1c87ff, 0 0 50px #1c87ff;
+  }
+  100% {
+      text-shadow: 0 0 5px #00d4ff, 0 0 15px #00ffff, 0 0 25px #00ffff, 0 0 35px #00ffff, 0 0 45px #1c87ff;
+  }
+}
+
+.letter-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.animated-mail {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  transition: 0.4s;
+}
+.animated-mail .body {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 100px 200px;
+  border-color: transparent transparent #e95f55 transparent;
+  z-index: 2;
+}
+.animated-mail .top-fold {
+  position: absolute;
+  top: 50px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 100px 0 100px;
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  -moz-transform-origin: 50% 0%;
+  -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  transform-origin: 50% 0%;
+  transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  border-color: #cf4a43 transparent transparent transparent;
+  z-index: 2;
+}
+.animated-mail .back-fold {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 100px;
+  background: #cf4a43;
+  z-index: 0;
+}
+.animated-mail .left-fold {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 0 50px 100px;
+  border-color: transparent transparent transparent #e15349;
+  z-index: 2;
+}
+.animated-mail .letter {
+  left: 20px;
+  bottom: 0px;
+  position: absolute;
+  width: 160px;
+  height: 50px;
+  background: white;
+  z-index: 1;
+  overflow: hidden;
+  -webkit-transition: 0.4s 0.2s;
+  -moz-transition: 0.4s 0.2s;
+  transition: 0.4s 0.2s;
+}
+.animated-mail .letter .letter-border {
+  height: 10px;
+  width: 100%;
+  background: repeating-linear-gradient(-45deg, #cb5a5e, #cb5a5e 8px, transparent 8px, transparent 18px);
+}
+.animated-mail .letter .letter-title {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 10px;
+  width: 40%;
+  background: #cb5a5e;
+}
+.animated-mail .letter .letter-context {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 10px;
+  width: 20%;
+  background: #cb5a5e;
+  content: 'ram avtar';
+}
+.animated-mail .letter .letter-context-body {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 100px;
+  width: 85%;
+  color: black;
+  content: 'ram avtar';
+}
+.animated-mail .letter .letter-stamp {
+  margin-top: 30px;
+  margin-left: 120px;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background: #cb5a5e;
+  opacity: 0.3;
+}
+
+.shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 400px;
+  height: 30px;
+  transition: 0.4s;
+  transform: translateX(-50%);
+  -webkit-transition: 0.4s;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: 0.4s;
+  -moz-transform: translateX(-50%);
+  border-radius: 100%;
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.letter-image:hover .animated-mail {
+  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+}
+.letter-image:hover .animated-mail .top-fold {
+  transition: transform 0.4s, z-index 0.2s;
+  transform: rotateX(180deg);
+  -webkit-transition: transform 0.4s, z-index 0.2s;
+  -webkit-transform: rotateX(180deg);
+  -moz-transition: transform 0.4s, z-index 0.2s;
+  -moz-transform: rotateX(180deg);
+  z-index: 0;
+}
+.letter-image:hover .animated-mail .letter {
+  height: 300px;
+  content: 'ram avtar';
+  color: #000;
+}
+.letter-image:hover .shadow {
+  width: 250px;
+}
+
+header {
+  background-color: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  border-bottom: 2px solid #d2232a;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+section p {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+}
+@keyframes colorChange {
+  0% {
+    color: #ff6347; /* Tomato Red */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+  25% {
+    color: #32cd32; /* Lime Green */
+    letter-spacing: 3px;
+    transform: scale(1.1);
+  }
+  50% {
+    color: #1e90ff; /* Dodger Blue */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+  75% {
+    color: #ff1493; /* Deep Pink */
+    letter-spacing: -2px;
+    transform: scale(1.05);
+  }
+  100% {
+    color: #ff6347; /* Tomato Red */
+    letter-spacing: 0;
+    transform: scale(1);
+  }
+}
+
+/* Bendras konteineris */
+.christmas-button-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Mygtukas */
+.button {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  min-width: 8em;
+  text-align: center;
+  color: #fff;
+  background-image: 
+    linear-gradient(to bottom, #f12828, #a00332, #9f0f31),
+    linear-gradient(to bottom, #ae0034, #6f094c);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 
+    inset 0 1px rgb(255 255 255 / .25),
+    inset 0 -1px rgb(0 0 0 / .1),
+    0 2px 4px rgb(0 0 0 / .25);
+  transition: .2s;
+  will-change: transform;
+  
+  &:active {
+    transform: scale(.92);
+    filter: brightness(.8);
+  }
+}
+
+.christmas-hat {
+  position: absolute;
+  top: -25px;
+  left: -27px;
+  height: 44px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25));
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Animacijos efektas */
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ff0000, 0 0 15px #ff7b00;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ff0000, 0 0 25px #ff7b00;
+  }
+}
+
+.christmas-button .text {
+  animation: sparkle 1.5s infinite;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul {
+    flex-direction: column;
+}
+
+nav ul li {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+  
+.qa-container {
+  max-width: 300px;
+  height: auto;
+}
+
+.snowflakes {
+    display: none;
+}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+header {
+    padding: 2rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+}
+
+@media screen and (min-width: 1025px) {
+header h1 {
+    font-size: 3rem;
+}
+
+nav ul {
+    justify-content: space-around;
+}
+}

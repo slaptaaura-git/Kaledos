@@ -288,7 +288,7 @@ body {
   font-size: 15px;
   margin-top: 30px;
   color: #000000;
-  font-family: fantasy;
+  font-family: 'serif','Garamond';
 }
 
 .wrapper:hover .lid.one {
